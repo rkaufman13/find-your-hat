@@ -1,6 +1,6 @@
 # Find Your Hat
 
-## A node-based adventure
+## A terminal-based adventure
 
 It's really quite simple. You, the *, have lost your hat, represented by a ^. Navigate the "maze" to find it. Don't fall into any holes!
 
