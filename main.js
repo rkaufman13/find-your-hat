@@ -5,6 +5,7 @@ const isHat = helpers.isHat;
 const isHole = helpers.isHole;
 const checkWinConditions = helpers.checkWinConditions;
 const checkDieConditions = helpers.checkDieConditions;
+const inRange = helpers.inRange;
 
 const hat = '^';
 const hole = 'O';
@@ -106,8 +107,15 @@ updateField(){
 
 }
 
-const wid = prompt('How wide do you want your board to be? ');
-const len = prompt('And how tall should it be? ');
+let wid = prompt('How wide do you want your board to be? ');
+while (!inRange(wid)){
+    wid = prompt('That\'s not a valid width; please choose a number between 2 and 100.')
+}
+let len = prompt('And how tall should it be? ');
+
+while (!inRange(len)){
+    len = prompt ('That\'s not a valid height, please choose a number between 2 and 100.');
+}
 let diffset = false;
 let holes = Math.floor(wid*len/3);
 

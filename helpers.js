@@ -45,4 +45,10 @@ const checkWinConditions = (gameField) => {
      else {return false;}
 }
 
-module.exports = {getRandomNum, isHat, isHole, checkWinConditions, checkDieConditions};
+const inRange = (num) => {
+    if (num > 1 && num < 101){
+        return true;
+    }
+}
+
+module.exports = {getRandomNum, isHat, isHole, checkWinConditions, checkDieConditions, inRange};
