@@ -155,6 +155,9 @@ switch (input.toLowerCase()){
     case 'w':
         gameField.playerY = gameField.playerY-1;
         gameState = checkDieConditions(gameField);
+        if (gameState === false){
+            break;
+        }
         foundhat = checkWinConditions(gameField);
         gameField.updateField();
         gameField.print();
@@ -162,6 +165,9 @@ switch (input.toLowerCase()){
     case 's':
         gameField.playerY = gameField.playerY+1;
         gameState = checkDieConditions(gameField);
+        if (gameState === false){
+            break;
+        }
         foundhat = checkWinConditions(gameField);
         gameField.updateField();
         gameField.print();
@@ -169,17 +175,20 @@ switch (input.toLowerCase()){
     case 'a':
         gameField.playerX=gameField.playerX-1;
         gameState = checkDieConditions(gameField);
+        if (gameState === false){
+            break;
+        }
         foundhat = checkWinConditions(gameField);
         gameField.updateField();
-        gameField.print();
-        break;
-         
         gameField.print();
         break;
     case 'd':
         //do something
         gameField.playerX=gameField.playerX+1;
       gameState = checkDieConditions(gameField);
+      if (gameState === false){
+        break;
+    }
       foundhat = checkWinConditions(gameField);
         gameField.updateField();
         gameField.print();
