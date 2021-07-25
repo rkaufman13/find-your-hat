@@ -86,7 +86,7 @@ while (holescount<this._numHoles){
 if (isHat(holeX,holeY,this._hatX,this._hatY) === false && !(holeX === 0 && holeY === 0)){
    
     if (isHole(holeX,holeY,this._fieldArray) === false){
-        this._fieldArray[holeY].splice(holeX,1,hole);
+        this._fieldArray[holeY][holeX] = hole;
         holescount++;
     }
 
@@ -102,7 +102,7 @@ print(){
 }
 
 updateField(){
-    this._fieldArray[this._playerY].splice(this._playerX,1,pathCharacter);
+    this._fieldArray[this._playerY][this._playerX] = pathCharacter;
 }
 
 }
@@ -150,23 +150,23 @@ let foundhat = false;
 let gameState = true;
 
 while (!foundhat && gameState === true){
-const input = prompt('Which way? Enter U, D, L, or R: ');
+const input = prompt('Which way? use WASD to move: ');
 switch (input.toLowerCase()){
-    case 'u':
+    case 'w':
         gameField.playerY = gameField.playerY-1;
         gameState = checkDieConditions(gameField);
         foundhat = checkWinConditions(gameField);
         gameField.updateField();
         gameField.print();
        break;
-    case 'd':
+    case 's':
         gameField.playerY = gameField.playerY+1;
         gameState = checkDieConditions(gameField);
         foundhat = checkWinConditions(gameField);
         gameField.updateField();
         gameField.print();
         break;
-    case 'l':
+    case 'a':
         gameField.playerX=gameField.playerX-1;
         gameState = checkDieConditions(gameField);
         foundhat = checkWinConditions(gameField);
@@ -176,7 +176,7 @@ switch (input.toLowerCase()){
          
         gameField.print();
         break;
-    case 'r':
+    case 'd':
         //do something
         gameField.playerX=gameField.playerX+1;
       gameState = checkDieConditions(gameField);
